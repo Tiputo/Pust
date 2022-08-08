@@ -1,0 +1,66 @@
+{
+	"formatVersion": 3,
+	"modifications": [
+		{
+			"modification": "removeField",
+			"entityName": "User",
+			"fieldName": "lastIn"
+		},
+		{
+			"modification": "createEntity",
+			"entity": {
+				"name": "Records",
+				"primary": "id",
+				"primaryColumn": "id",
+				"tableName": "records",
+				"fields": {
+					"id": {
+						"name": "id",
+						"columnName": "id",
+						"columnType": "uuid",
+						"nullable": false,
+						"type": "Uuid"
+					}
+				},
+				"unique": {},
+				"eventLog": {
+					"enabled": true
+				}
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "Records",
+			"field": {
+				"name": "lastIn",
+				"columnName": "last_in",
+				"columnType": "timestamptz",
+				"nullable": true,
+				"type": "DateTime",
+				"default": "now"
+			},
+			"fillValue": "now"
+		},
+		{
+			"modification": "createRelation",
+			"entityName": "Records",
+			"owningSide": {
+				"type": "ManyHasOne",
+				"name": "user",
+				"target": "User",
+				"joiningColumn": {
+					"columnName": "user_id",
+					"onDelete": "cascade"
+				},
+				"nullable": true,
+				"inversedBy": "records"
+			},
+			"inverseSide": {
+				"type": "OneHasMany",
+				"name": "records",
+				"target": "Records",
+				"ownedBy": "user"
+			}
+		}
+	]
+}

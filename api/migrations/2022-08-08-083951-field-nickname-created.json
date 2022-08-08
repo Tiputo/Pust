@@ -1,0 +1,16 @@
+{
+	"formatVersion": 3,
+	"modifications": [
+		{
+			"modification": "createColumn",
+			"entityName": "User",
+			"field": {
+				"name": "nickname",
+				"columnName": "nickname",
+				"columnType": "text",
+				"nullable": true,
+				"type": "String"
+			}
+		}
+	]
+}

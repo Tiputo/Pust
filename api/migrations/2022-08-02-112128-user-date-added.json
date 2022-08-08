@@ -1,0 +1,18 @@
+{
+	"formatVersion": 3,
+	"modifications": [
+		{
+			"modification": "createColumn",
+			"entityName": "User",
+			"field": {
+				"name": "publishAt",
+				"columnName": "publish_at",
+				"columnType": "timestamptz",
+				"nullable": true,
+				"type": "DateTime",
+				"default": "now"
+			},
+			"fillValue": "now"
+		}
+	]
+}

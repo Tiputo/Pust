@@ -1,0 +1,53 @@
+{
+	"formatVersion": 3,
+	"modifications": [
+		{
+			"modification": "removeEntity",
+			"entityName": "Article"
+		},
+		{
+			"modification": "createEntity",
+			"entity": {
+				"name": "Test",
+				"primary": "id",
+				"primaryColumn": "id",
+				"tableName": "test",
+				"fields": {
+					"id": {
+						"name": "id",
+						"columnName": "id",
+						"columnType": "uuid",
+						"nullable": false,
+						"type": "Uuid"
+					}
+				},
+				"unique": {},
+				"eventLog": {
+					"enabled": true
+				}
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "Test",
+			"field": {
+				"name": "title",
+				"columnName": "title",
+				"columnType": "text",
+				"nullable": true,
+				"type": "String"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "Test",
+			"field": {
+				"name": "content",
+				"columnName": "content",
+				"columnType": "text",
+				"nullable": true,
+				"type": "String"
+			}
+		}
+	]
+}

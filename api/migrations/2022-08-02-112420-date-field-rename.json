@@ -1,0 +1,23 @@
+{
+	"formatVersion": 3,
+	"modifications": [
+		{
+			"modification": "removeField",
+			"entityName": "User",
+			"fieldName": "publishAt"
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "User",
+			"field": {
+				"name": "lastIn",
+				"columnName": "last_in",
+				"columnType": "timestamptz",
+				"nullable": true,
+				"type": "DateTime",
+				"default": "now"
+			},
+			"fillValue": "now"
+		}
+	]
+}
