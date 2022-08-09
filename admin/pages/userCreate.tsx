@@ -6,7 +6,7 @@ export default () => (
     <CreatePage
         entity="User"
         rendererProps={{ title: "Add user" }}
-        redirectOnSuccess="userEdit(id: $entity.id)">
+        redirectOnSuccess="userList(id: $entity.id)">
         <UserForm />
     </CreatePage>
 )
