@@ -1,9 +1,9 @@
 import Head from 'next/head'
-
-
-
+import { serverSideFetch } from '../lib/graphql/gqlfetch'
+import getHomePage from '../lib/graphql/queries/getHomePage'
 
 export default function (props: any) {
+	const listUser = props.data?.listUser
 
 	if (props.errors) {
 		return (
@@ -25,10 +25,16 @@ export default function (props: any) {
 			<Head>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-
-
 			<main>
-				Pust
+				<h1>Půst</h1>
+				<div>
+					{listUser.map(user => (
+						<div>
+							{user.nickname}
+						</div>
+					))
+					}
+				</div>
 			</main>
 
 		</>
@@ -36,10 +42,12 @@ export default function (props: any) {
 }
 
 export async function getStaticProps() {
+	const { data, errors } = await serverSideFetch(getHomePage)
 
 	return {
 		props: {
-			data: {},
+			data: data ?? null,
+			errors: errors ?? null
 		},
 		revalidate: 10,
 	}
