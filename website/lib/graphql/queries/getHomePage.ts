@@ -1,10 +1,9 @@
 const getHomePage = `#graphql
 	query {
-		getPage(by: {role: homePage}) {
+		listUser{
 			id
-			slug
-		}
+			nickname
+		  }
 	}
 `
-
 export default getHomePage
