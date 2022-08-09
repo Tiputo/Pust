@@ -5,7 +5,7 @@ import { RecordsForm } from "../forms/recordsForms";
 export default () => (
     <CreatePage
         entity="Records"
-        redirectOnSuccess="recordsEdit(id: $entity.id)">
+        redirectOnSuccess="recordsList(id: $entity.id)">
         <Box heading="Records">
             <RecordsForm field="user" labelUser="Choose a user" />
         </Box>

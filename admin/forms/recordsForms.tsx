@@ -21,7 +21,7 @@ export const RecordsSideForm = Component(
     () => (
         <>
             <DateTimeField
-                field="records.lastIn"
+                field="lastIn"
                 label={'Record has been created.'}
                 defaultValue={new Date().toISOString()}
             />
