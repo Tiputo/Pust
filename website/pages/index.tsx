@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import AddRecordForm from '../components/AddRecordForm'
 import { serverSideFetch } from '../lib/graphql/gqlfetch'
 import getHomePage from '../lib/graphql/queries/getHomePage'
 
@@ -28,12 +29,7 @@ export default function (props: any) {
 			<main>
 				<h1>Půst</h1>
 				<div>
-					{listUser.map(user => (
-						<div>
-							{user.nickname}
-						</div>
-					))
-					}
+					<AddRecordForm listPlayer={listUser} />
 				</div>
 			</main>
 

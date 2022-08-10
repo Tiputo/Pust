@@ -2,6 +2,8 @@ const getHomePage = `#graphql
 	query {
 		listUser{
 			id
+			firstname
+			surname
 			nickname
 		  }
 	}
