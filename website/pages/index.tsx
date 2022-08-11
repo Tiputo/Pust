@@ -21,6 +21,10 @@ export default function (props: any) {
 		)
 	}
 
+	const toLocaleDatetime = (rawDate) => {
+		return new Date(rawDate).toLocaleDateString('cs-CZ', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' })
+	}
+
 	return (
 		<>
 			<Head>
@@ -29,7 +33,38 @@ export default function (props: any) {
 			<main>
 				<h1>Půst</h1>
 				<div>
-					<AddRecordForm listPlayer={listUser} />
+					<AddRecordForm listUser={listUser} />
+					{listUser.map(record => (
+						<table key={record.id}>
+							<thead>
+								<tr>
+									<td>
+										jmeno
+									</td>
+									<td>
+										naposledy v
+									</td>
+									<td>
+										tady bude button pro splneno nebo ne
+									</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div>{record.nickname}</div>
+									</td>
+									<td>
+										{toLocaleDatetime(record.lastIn)}
+										{console.log(record.lastIn)}
+									</td>
+									<td>
+										splneno/skoro nesplneno/nesplneno
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					))}
 				</div>
 			</main>
 
@@ -48,3 +83,5 @@ export async function getStaticProps() {
 		revalidate: 10,
 	}
 }
+
+

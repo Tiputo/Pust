@@ -5,7 +5,7 @@ import createRecord from '../lib/graphql/mutations/createRecord';
 export default function AddRecordForm(props: any) {
     const listUser = props.listUser
 
-    const [submitState, setSubmitState] = useState<any>(null)
+    const [setSubmitState] = useState<any>(null)
 
 
     const submitForm = useCallback(async (event, data) => {
