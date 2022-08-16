@@ -6,6 +6,14 @@ const getHomePage = `#graphql
 			surname
 			nickname
 		  }
+
+		  listRecords{
+			id
+			lastIn
+			user{
+			  nickname
+			}
+		  }
 	}
 `
 export default getHomePage

@@ -12,9 +12,7 @@ export default function AddRecordForm(props: any) {
         const { errors, data: submitData } = await clientSideFetch(createRecord(data.userId as string))
         if (errors) {
             console.error(errors)
-            setSubmitState([{ message: 'Záznam nemůže být vytvořen.', ok: false }])
         } else {
-            setSubmitState([{ message: 'Záznam byl vytvořen.', ok: true }])
             event.target.reset();
         }
     }, [])

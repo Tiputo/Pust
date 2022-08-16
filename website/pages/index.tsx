@@ -2,9 +2,11 @@ import Head from 'next/head'
 import AddRecordForm from '../components/AddRecordForm'
 import { serverSideFetch } from '../lib/graphql/gqlfetch'
 import getHomePage from '../lib/graphql/queries/getHomePage'
-
+import style from '../styles/homePage.module.sass'
 export default function (props: any) {
 	const listUser = props.data?.listUser
+	const listRecords = props.data?.listRecords
+
 
 	if (props.errors) {
 		return (
@@ -15,6 +17,7 @@ export default function (props: any) {
 							<p>{error.message}</p>
 							<p>{error.code}</p>
 						</>
+
 					))
 				}
 			</>
@@ -31,43 +34,46 @@ export default function (props: any) {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>
-				<h1>Půst</h1>
-				<div>
-					<AddRecordForm listUser={listUser} />
-					{listUser.map(record => (
-						<table key={record.id}>
-							<thead>
-								<tr>
-									<td>
-										jmeno
-									</td>
-									<td>
-										naposledy v
-									</td>
-									<td>
-										tady bude button pro splneno nebo ne
-									</td>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
-										<div>{record.nickname}</div>
-									</td>
-									<td>
-										{toLocaleDatetime(record.lastIn)}
-										{console.log(record.lastIn)}
-									</td>
-									<td>
-										splneno/skoro nesplneno/nesplneno
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					))}
+				<div className={style.body}>
+					<h1 className={style.title}>Půst</h1>
+					<div className={style.table}>
+						<div className={style.select}>
+							<AddRecordForm listUser={listUser} />
+						</div>
+
+						{listRecords.map(record => (
+							<table key={record.id}>
+								<thead>
+									<tr>
+										<th>
+											Jméno
+										</th>
+										<th>
+											Naposledy v
+										</th>
+										<th>
+											Jak jsem se vedl
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<div>{record.user.nickname}</div>
+										</td>
+										<td>
+											{toLocaleDatetime(record.lastIn)}
+										</td>
+										<td>
+											splneno/skoro nesplneno/nesplneno
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						))}
+					</div>
 				</div>
 			</main>
-
 		</>
 	)
 }

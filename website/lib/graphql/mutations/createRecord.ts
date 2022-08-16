@@ -5,7 +5,7 @@ const createRecord = (userId: string) => {
           user: {
             create: {
               nickname: { connect: { id: "${userId}" } }
-            }
+            }   
           }
         })
         {
