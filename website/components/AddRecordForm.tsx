@@ -12,7 +12,6 @@ export default function AddRecordForm(props: any) {
         event.preventDefault()
     }, [])
 
-
     return (
         <>
             <form onSubmit={onSubmit}>

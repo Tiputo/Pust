@@ -52,7 +52,10 @@ export default function (props: any) {
 											Naposledy v
 										</th>
 										<th>
-											Jak jsem se vedl
+											Splnil jsi?
+										</th>
+										<th>
+											Nastavení limitu
 										</th>
 									</tr>
 								</thead>
@@ -65,7 +68,10 @@ export default function (props: any) {
 											{toLocaleDatetime(record.lastIn)}
 										</td>
 										<td>
-											splneno/skoro nesplneno/nesplneno
+											✔️| 🤏 | ❌
+										</td>
+										<td>
+											14h (sem vybirani casu)
 										</td>
 									</tr>
 								</tbody>
