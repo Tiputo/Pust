@@ -7,7 +7,7 @@ const getHomePage = `#graphql
 			nickname
 		  }
 
-		  listRecords{
+		  listRecords(orderBy: [{lastIn: desc}]){
 			id
 			lastIn
 			user{

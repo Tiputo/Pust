@@ -3,10 +3,8 @@ const createRecord = (userId: string) => {
     mutation {
         createRecords(data: {
           user: {
-            create: {
-              nickname: { connect: { id: "${userId}" } }
+            connect: { id: "${userId}" }
             }   
-          }
         })
         {
           ok

@@ -1,27 +1,16 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { clientSideFetch } from '../lib/graphql/gqlfetch';
 import createRecord from '../lib/graphql/mutations/createRecord';
 
 export default function AddRecordForm(props: any) {
     const listUser = props.listUser
 
-    const [setSubmitState] = useState<any>(null)
-
-
-    const submitForm = useCallback(async (event, data) => {
-        const { errors, data: submitData } = await clientSideFetch(createRecord(data.userId as string))
-        if (errors) {
-            console.error(errors)
-        } else {
-            event.target.reset();
-        }
-    }, [])
-
-    const onSubmit = useCallback((event) => {
-        event.preventDefault()
+    const onSubmit = useCallback(async (event) => {
         const formData = new FormData(event.target)
         const data = Object.fromEntries(formData)
-    }, [submitForm])
+        const { errors, data: submitData } = await clientSideFetch(createRecord(data.userId as string))
+        event.preventDefault()
+    }, [])
 
 
     return (
