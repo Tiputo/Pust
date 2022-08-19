@@ -28,6 +28,10 @@ export default function (props: any) {
 		return new Date(rawDate).toLocaleDateString('cs-CZ', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' })
 	}
 
+	const replaceword = (that, word, oword) => {
+		that.textContent = that.textContent == oword ? word : oword;
+	}
+
 	return (
 		<>
 			<Head>
@@ -40,6 +44,8 @@ export default function (props: any) {
 						<div className={style.select}>
 							<AddRecordForm listUser={listUser} />
 						</div>
+
+						<div className={style.timer}>časovač půstu</div>
 
 						{listRecords.map(record => (
 							<table key={record.id}>
@@ -54,9 +60,6 @@ export default function (props: any) {
 										<th>
 											Splnil jsi?
 										</th>
-										<th>
-											Nastavení limitu
-										</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -69,9 +72,7 @@ export default function (props: any) {
 										</td>
 										<td>
 											✔️| 🤏 | ❌
-										</td>
-										<td>
-											14h (sem vybirani casu)
+											{/* <p>Quickly<span onClick={replaceword(this,'❌','✔️')}>✔️</span>The Web!</p> */}
 										</td>
 									</tr>
 								</tbody>

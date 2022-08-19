@@ -28,7 +28,7 @@ export default function AddRecordForm(props: any) {
                     </select>
                 </div>
                 <div>
-                    <button type="submit">Přidej!</button>
+                    <button type="submit">Dneska jsem si dal jídlo</button>
                 </div>
             </form>
         </>
