@@ -28,57 +28,52 @@ export default function (props: any) {
 		return new Date(rawDate).toLocaleDateString('cs-CZ', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' })
 	}
 
-	const replaceword = (that, word, oword) => {
-		that.textContent = that.textContent == oword ? word : oword;
-	}
-
 	return (
 		<>
 			<Head>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>
-				<div className={style.body}>
-					<h1 className={style.title}>Půst</h1>
-					<div className={style.table}>
-						<div className={style.select}>
-							<AddRecordForm listUser={listUser} />
-						</div>
-
-						<div className={style.timer}>časovač půstu</div>
-
-						{listRecords.map(record => (
-							<table key={record.id}>
-								<thead>
-									<tr>
-										<th>
-											Jméno
-										</th>
-										<th>
-											Naposledy v
-										</th>
-										<th>
-											Splnil jsi?
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>
-											<div>{record.user.nickname}</div>
-										</td>
-										<td>
-											{toLocaleDatetime(record.lastIn)}
-										</td>
-										<td>
-											✔️| 🤏 | ❌
-											{/* <p>Quickly<span onClick={replaceword(this,'❌','✔️')}>✔️</span>The Web!</p> */}
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						))}
+				<h1 className={style.title}>Půst</h1>
+				<div className={style.table}>
+					<div className={style.select}>
+						<AddRecordForm listUser={listUser} />
 					</div>
+
+					{/* <div className={style.timer}>časovač půstu</div> */}
+
+					{listRecords.map(record => (
+						<table key={record.id} className={style.tableIn}>
+							<thead>
+								<tr>
+									<th>
+										Jméno
+									</th>
+									<th>
+										Naposledy v
+									</th>
+									<th>
+										Splnil jsi?
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<div>{record.user.nickname}</div>
+									</td>
+									<td>
+										{toLocaleDatetime(record.lastIn)}
+									</td>
+									<td>
+										<button type="submit">✔️</button>
+										<button type="submit">🤏</button>
+										<button type="submit">❌</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					))}
 				</div>
 			</main>
 		</>
