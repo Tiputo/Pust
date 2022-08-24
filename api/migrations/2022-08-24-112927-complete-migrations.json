@@ -1,0 +1,38 @@
+{
+	"formatVersion": 3,
+	"modifications": [
+		{
+			"modification": "createColumn",
+			"entityName": "Records",
+			"field": {
+				"name": "yes",
+				"columnName": "yes",
+				"columnType": "text",
+				"nullable": true,
+				"type": "String"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "Records",
+			"field": {
+				"name": "almost",
+				"columnName": "almost",
+				"columnType": "text",
+				"nullable": true,
+				"type": "String"
+			}
+		},
+		{
+			"modification": "createColumn",
+			"entityName": "Records",
+			"field": {
+				"name": "no",
+				"columnName": "no",
+				"columnType": "text",
+				"nullable": true,
+				"type": "String"
+			}
+		}
+	]
+}
